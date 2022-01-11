@@ -41,7 +41,16 @@ class Aweaber
         @oauth_client.auth_code.get_token(code, redirect_uri: REDIRECT_URI)
     end 
 
-    def refresh
+    def refresh!(access_token, refresh_token)
+        oauth_token = OAuth2::AccessToken.new(
+            @oauth_client,
+            access_token,
+            {
+                refresh_token: refresh_token,
+                scope: SCOPE
+            }
+        )
+        oauth_token.refresh!(scopes: SCOPE)
     end 
 
 end 
