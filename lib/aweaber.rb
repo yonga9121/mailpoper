@@ -6,7 +6,7 @@ class Aweaber
     SITE_URL = "https://auth.aweber.com".freeze
     AUTH_URL = '/oauth2/authorize'.freeze
     TOKEN_URL = '/oauth2/token'.freeze
-    REDIRECT_URI = 'https://mailpoper.herokuapp.com/auth'.freeze
+    REDIRECT_URI = 'https://mailpoper.herokuapp.com/oauth/auth'.freeze
     CLIENT_ID = ENV["AWEABER_CLIENT_ID"].freeze
     CLIENT_SECRET = ENV["AWEABER_CLIENT_SECRET"].freeze
     
@@ -37,7 +37,7 @@ class Aweaber
         str = @oauth_client.auth_code.authorize_url(redirect_uri: REDIRECT_URI, SCOPE: SCOPE)
     end 
 
-    def token
+    def token(code)
         puts @oauth_client.auth_code.get_token(code, redirect_uri: REDIRECT_URI)
     end 
 

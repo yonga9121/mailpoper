@@ -1,5 +1,9 @@
 class ApplicationController < ActionController::API
 
+
+    private 
+
+
     def current_account
         @current_account ||= AweaberAccount.last
         check_account
@@ -14,10 +18,11 @@ class ApplicationController < ActionController::API
             end 
         else
             url = AweaberAccount.authorize
-            render json: { 
+            puts url
+            render json: JSON.generate( { 
                 mssg: "Please login into Aweaber",
                 url: url
-            }
+            })
         end 
     end 
 end

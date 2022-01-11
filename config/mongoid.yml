@@ -1,0 +1,18 @@
+development:
+  clients:
+    default:
+      uri: <%= ENV['MONGO_URL'] %>
+      options:
+        heartbeat_frequency: 1
+        read:
+            mode: <%= ENV['MONGO_READ_MODE']||"primary" %>
+        max_pool_size: 100
+production:
+  clients:
+    default:
+      uri: <%= ENV['MONGO_URL'] %>
+      options:
+        max_pool_size: <%= (ENV['MONGO_POOL_SIZE']||"300").to_i %>
+        heartbeat_frequency: 1
+        read:
+            mode: <%= ENV['MONGO_READ_MODE']||"primary" %>

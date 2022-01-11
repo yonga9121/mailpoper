@@ -13,9 +13,9 @@ class AweaberAccount
         client.authorize
     end
 
-    def self.from_oauth(code)
+    def self.from_code(code)
         client = Aweaber.new
-        client.token
+        client.token code
     end
 
 end 

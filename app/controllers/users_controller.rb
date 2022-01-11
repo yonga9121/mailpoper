@@ -6,7 +6,11 @@ class UsersController < ApplicationController
         user = User.new user_params
         user.validate
         user.create!
-        render :json, { success: user.send_info ? I18n.t("registration_success_poping") : I18n.t("registration_success_not_poping")) }
+        render :json, { success: user.send_info ? I18n.t("registration_success_poping") : I18n.t("registration_success_not_poping") }
+    end
+
+    def welcome
+        render json: {mssg: "Welcome to mailpoper app"}
     end
 
     private 
