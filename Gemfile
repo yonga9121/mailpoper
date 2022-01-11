@@ -37,3 +37,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'mongoid', '~> 7.0.5'
 gem 'oauth2'
+gem 'sidekiq'
+gem 'clockwork'
+gem 'httparty'
