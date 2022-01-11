@@ -31,3 +31,5 @@
 
 en:
   hello: "Hello world"
+  registration_success_poping: "User registration completed successfuly. Mail poping allowed"
+  registration_success_not_poping: "User registration completed successfuly. Mail poping not allowed"
