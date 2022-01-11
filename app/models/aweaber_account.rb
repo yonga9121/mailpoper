@@ -15,7 +15,14 @@ class AweaberAccount
 
     def self.from_code(code)
         client = Aweaber.new
-        client.token code
+        oauth_access_token = client.token(code)
+        if oauth_access_token
+            self.create!(
+                access_token: oauth_access_token.token,
+                refresh_token: oauth_access_token.refresh_token,
+                expires_in: oauth_access_token.expires_in.to_i
+            )
+        end 
     end
 
 end 

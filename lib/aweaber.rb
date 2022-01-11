@@ -38,7 +38,7 @@ class Aweaber
     end 
 
     def token(code)
-        puts @oauth_client.auth_code.get_token(code, redirect_uri: REDIRECT_URI)
+        @oauth_client.auth_code.get_token(code, redirect_uri: REDIRECT_URI)
     end 
 
     def refresh
