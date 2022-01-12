@@ -13,6 +13,7 @@ module Clockwork
   Mongo::Logger.logger.level = ::Logger::INFO
   puts "Clockwork configured. Starting."
   every(1.minute, 'Sending Emails') do
+    puts "Sending Emails"
     RegistrationWorker.perform()
   end
 end

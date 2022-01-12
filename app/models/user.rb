@@ -27,7 +27,7 @@ class User
   end 
 
   def phone_validation
-    if self.phone.blank? || (!self.phone.blank? && (!self.phone.numeric? || self.phone.size < 10) )
+    if self.phone.blank? || (!self.phone.blank? && (!self.phone.numeric? || self.phone.to_s.size < 10) )
       raise Errors::User::PhoneNotValid 
     end
   end 

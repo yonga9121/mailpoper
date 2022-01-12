@@ -70,7 +70,6 @@ class Aweaber
                 }
             )
         )
-        puts response
         response
     end 
 
@@ -84,7 +83,6 @@ class Aweaber
                 }
             )
         )
-        puts response
         response
     end
 
@@ -101,7 +99,6 @@ class Aweaber
                 }
             )
         )
-        puts response
         response
     end 
 
@@ -119,14 +116,11 @@ class Aweaber
                 }
             )
         )
-        puts response
         response
     end 
 
     def get_request(service_url, query = {}, headers = {})
         headers['Content-Type'] = 'application/json'
-        puts "URL",service_url
-        puts headers
         self.class.get(
             URI.escape(service_url),
             body: query.to_json,
@@ -144,8 +138,6 @@ class Aweaber
     end 
 
     def parse_response(httparty_response)
-        puts "CLIENT RESPONSE"
-        puts httparty_response
         if !["200", "201", "204"].include? httparty_response.response.code.to_s
           return {}
         end

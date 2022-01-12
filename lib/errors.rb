@@ -1,6 +1,7 @@
 module Errors
 
     class GenericError < StandardError
+        attr_accessor :error, :status, :message, :data
         def initialize(error: nil, status: nil, message: nil, data: [])
             @error = error || 422
             @status = status || :unprocessable_entity
@@ -38,7 +39,7 @@ module Errors
                         error: 422,
                         status: :unprocessable_entity,
                         message: "Phone is invalid. Min length is 10. Only valid numeric characters are allowed"
-                    )
+                )
             end 
         end 
     end 
